@@ -16,6 +16,50 @@ public class GlobalStats {
     @SerializedName("todayCases")
     private String todayCases;
 
+    @SerializedName("todayRecovered")
+    private String todayRecovered;
+
+    @SerializedName("recovered")
+    private String recovered;
+
+    @SerializedName("deaths")
+    private String deaths;
+
+    @SerializedName("todayDeaths")
+    private String todayDeaths;
+
+    public String getDeaths() {
+        return deaths;
+    }
+
+    public void setDeaths(String deaths) {
+        this.deaths = deaths;
+    }
+
+    public String getTodayDeaths() {
+        return todayDeaths;
+    }
+
+    public void setTodayDeaths(String todayDeaths) {
+        this.todayDeaths = todayDeaths;
+    }
+
+    public String getTodayRecovered() {
+        return todayRecovered;
+    }
+
+    public void setTodayRecovered(String todayRecovered) {
+        this.todayRecovered = todayRecovered;
+    }
+
+    public String getRecovered() {
+        return recovered;
+    }
+
+    public void setRecovered(String recovered) {
+        this.recovered = recovered;
+    }
+
     public String getCases() {
         return cases;
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Corona Tracker</string>
+    <string name="txt_source">Covid-19 data sourced from Worldometers,\nupdates in every 10 minutes</string>
 </resources>
