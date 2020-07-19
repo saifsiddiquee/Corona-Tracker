@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //typeface
+    <dimen name="size_head">24sp</dimen>
+    <dimen name="size_body">16sp</dimen>
+    <dimen name="size_title">18sp</dimen>
+</resources>
