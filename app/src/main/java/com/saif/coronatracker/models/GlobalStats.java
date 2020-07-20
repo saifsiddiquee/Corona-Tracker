@@ -28,6 +28,17 @@ public class GlobalStats {
     @SerializedName("todayDeaths")
     private String todayDeaths;
 
+    @SerializedName("affectedCountries")
+    private String affectedCountries;
+
+    public String getAffectedCountries() {
+        return affectedCountries;
+    }
+
+    public void setAffectedCountries(String affectedCountries) {
+        this.affectedCountries = affectedCountries;
+    }
+
     public String getDeaths() {
         return deaths;
     }

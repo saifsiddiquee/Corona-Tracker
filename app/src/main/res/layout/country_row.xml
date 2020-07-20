@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvCountry"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@android:color/white"
+    android:elevation="4dp"
+    android:orientation="horizontal"
+    app:cardCornerRadius="8dp"
+    app:cardUseCompatPadding="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:clipToPadding="true"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCountryPoster"
+                android:layout_width="120dp"
+                android:layout_height="75dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/placeholder" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <com.saif.coronatracker.customs.TextViewRegular
+            android:id="@+id/tvCountryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Bangladesh"
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/size_title"
+            app:layout_constraintStart_toEndOf="@+id/card_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.saif.coronatracker.customs.TextViewRegular
+            android:id="@+id/tvCases"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Affected: 250"
+            android:textSize="@dimen/size_body"
+            app:layout_constraintStart_toStartOf="@+id/tvCountryName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCountryName" />
+
+        <com.saif.coronatracker.customs.TextViewRegular
+            android:id="@+id/tvRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recovered: 150"
+            android:textSize="@dimen/size_body"
+            app:layout_constraintBottom_toBottomOf="@+id/card_image"
+            app:layout_constraintStart_toStartOf="@+id/tvCountryName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCases"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/iv_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

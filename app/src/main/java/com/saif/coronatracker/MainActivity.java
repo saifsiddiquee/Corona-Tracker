@@ -1,17 +1,14 @@
 package com.saif.coronatracker;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toolbar;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.saif.coronatracker.customs.CustomProgressDialog;
 import com.saif.coronatracker.databinding.ActivityMainBinding;
@@ -19,9 +16,7 @@ import com.saif.coronatracker.helpers.Methods;
 import com.saif.coronatracker.models.GlobalStats;
 import com.saif.coronatracker.restService.ApiClients;
 import com.saif.coronatracker.restService.ApiInterfaces;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.saif.coronatracker.ui.AllCountryActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -63,6 +58,13 @@ public class MainActivity extends AppCompatActivity {
                 bindingMainActivity.swipeRefresh.setRefreshing(false);
             }, 1500);
         }));
+
+        bindingMainActivity.cardAffectedCountry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(mActivity, AllCountryActivity.class));
+            }
+        });
     }
 
     private void getGlobalStats() {
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                             bindingMainActivity.txtRecoveredToday.setText(response.body().getTodayRecovered());
                             bindingMainActivity.txtDeath.setText(response.body().getDeaths());
                             bindingMainActivity.txtDeathToday.setText(response.body().getTodayDeaths());
+                            bindingMainActivity.txtAffectedCountries.setText(response.body().getAffectedCountries());
                         }
                     } catch (Exception e) {
                         Log.d(TAG, "onResponse: " + e.getMessage());

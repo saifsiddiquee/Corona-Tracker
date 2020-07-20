@@ -44,13 +44,14 @@
             android:layout_height="0dp"
             android:visibility="gone">
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_total_cases"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
+                app:cardCornerRadius="8dp"
                 android:checkable="true"
                 android:clickable="true"
                 android:elevation="8dp"
@@ -84,9 +85,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_today_cases"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -95,6 +96,7 @@
                 android:layout_marginEnd="16dp"
                 android:checkable="true"
                 android:clickable="true"
+                app:cardCornerRadius="8dp"
                 android:elevation="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
@@ -128,9 +130,9 @@
                 </LinearLayout>
 
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_active_cases"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -139,6 +141,7 @@
                 android:layout_marginEnd="8dp"
                 android:checkable="true"
                 android:clickable="true"
+                app:cardCornerRadius="8dp"
                 android:elevation="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
@@ -171,9 +174,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_critical_cases"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -183,6 +186,7 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:elevation="8dp"
+                app:cardCornerRadius="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -214,9 +218,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_recovered"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -226,6 +230,7 @@
                 android:checkable="true"
                 android:clickable="true"
                 android:elevation="8dp"
+                app:cardCornerRadius="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
                 app:layout_constraintEnd_toStartOf="@+id/card_recovered_today"
@@ -257,9 +262,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_recovered_today"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -270,6 +275,7 @@
                 android:elevation="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/card_recovered"
@@ -299,9 +305,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_death"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -310,6 +316,7 @@
                 android:layout_marginEnd="8dp"
                 android:checkable="true"
                 android:clickable="true"
+                app:cardCornerRadius="8dp"
                 android:elevation="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
@@ -342,9 +349,9 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.cardview.widget.CardView
                 android:id="@+id/card_death_today"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -356,6 +363,7 @@
                 android:elevation="8dp"
                 android:focusable="true"
                 android:minWidth="150dp"
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/card_death"
@@ -385,8 +393,65 @@
 
                 </LinearLayout>
 
-            </com.google.android.material.card.MaterialCardView>
+            </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_affected_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:checkable="true"
+                android:clickable="true"
+                android:elevation="8dp"
+                app:cardCornerRadius="8dp"
+                android:foreground="?selectableItemBackground"
+                android:focusable="true"
+                android:minWidth="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_death">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_gradient_red"
+                    android:padding="8dp">
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/affected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:text="Affected Countries:"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/size_title" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/txt_affected_countries"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_toEndOf="@+id/affected"
+                        android:text="253"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/size_title" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/txt_see_all"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="See All"
+                        android:textColor="@color/colorText" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
