@@ -29,6 +29,8 @@ import com.saif.coronatracker.models.CountriesResponse;
 import com.saif.coronatracker.restService.ApiClients;
 import com.saif.coronatracker.restService.ApiInterfaces;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,7 +81,7 @@ public class AllCountryActivity extends AppCompatActivity {
         Call<List<CountriesResponse>> call = coronaService.getCountries();
         call.enqueue(new Callback<List<CountriesResponse>>() {
             @Override
-            public void onResponse(Call<List<CountriesResponse>> call, Response<List<CountriesResponse>> response) {
+            public void onResponse(@NotNull Call<List<CountriesResponse>> call, @NotNull Response<List<CountriesResponse>> response) {
                 countriesResponseList = response.body();
                 if (countriesResponseList != null) {
                     for (CountriesResponse countriesResponse : countriesResponseList) {
@@ -93,7 +95,7 @@ public class AllCountryActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<CountriesResponse>> call, Throwable t) {
+            public void onFailure(@NotNull Call<List<CountriesResponse>> call, @NotNull Throwable t) {
                 customProgress.hideProgress();
                 Log.d("Error", t.getMessage());
             }

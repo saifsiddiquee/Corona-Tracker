@@ -19,6 +19,7 @@ import com.saif.coronatracker.R;
 import com.saif.coronatracker.models.CountriesResponse;
 import com.saif.coronatracker.restService.ApiClients;
 import com.saif.coronatracker.restService.ApiInterfaces;
+import com.saif.coronatracker.ui.CountryDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -122,12 +123,13 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
                         //System.out.println("response size : "+responseList.size());
 
 
-                        /*Intent intent = new Intent(view.getContext(), DetailActivity.class);
+                        Intent intent = new Intent(view.getContext(), CountryDetailsActivity.class);
 
                         if (response.body() != null) {
                             intent.putExtra("country", response.body().getCountry());
                             intent.putExtra("todayCase", response.body().getTodayCases());
                             intent.putExtra("todayDeath", response.body().getTodayDeaths());
+                            intent.putExtra("todayRecovered", response.body().getTodayRecovered());
                             intent.putExtra("flag", response.body().getCountryInfo().getFlag());
                             intent.putExtra("cases", response.body().getCases());
                             intent.putExtra("deaths", response.body().getDeaths());
@@ -135,7 +137,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryH
                             intent.putExtra("recovered", response.body().getRecovered());
                         }
 
-                        view.getContext().startActivity(intent);*/
+                        view.getContext().startActivity(intent);
 
                     }
 

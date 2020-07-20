@@ -46,13 +46,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         customProgress = CustomProgressDialog.getInstance();
-        customProgress.showProgress(MainActivity.this, "Please Wait", false);
+        customProgress.showProgress(MainActivity.this, "Please Wait...", false);
         getGlobalStats();
 
         bindingMainActivity.swipeRefresh.setOnRefreshListener(() -> mActivity.runOnUiThread(() -> {
             bindingMainActivity.mainHolder.setVisibility(View.GONE);
             customProgress = CustomProgressDialog.getInstance();
-            customProgress.showProgress(MainActivity.this, "Fetching Data", false);
+            customProgress.showProgress(MainActivity.this, "Fetching Data...", false);
             new Handler().postDelayed(() -> {
                 getGlobalStats();
                 bindingMainActivity.swipeRefresh.setRefreshing(false);

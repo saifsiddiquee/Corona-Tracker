@@ -14,7 +14,15 @@ public class CountriesResponse {
     private String todayCases;
     private String todayDeaths;
     private String tests;
+    private String todayRecovered;
 
+    public String getTodayRecovered() {
+        return todayRecovered;
+    }
+
+    public void setTodayRecovered(String todayRecovered) {
+        this.todayRecovered = todayRecovered;
+    }
 
     public String getCountry() {
         return country;
