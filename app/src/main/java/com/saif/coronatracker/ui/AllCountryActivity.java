@@ -7,23 +7,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.saif.coronatracker.MainActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.saif.coronatracker.R;
 import com.saif.coronatracker.adapters.CountryAdapter;
 import com.saif.coronatracker.customs.CustomProgressDialog;
 import com.saif.coronatracker.databinding.ActivityAllCountryBinding;
-import com.saif.coronatracker.databinding.ActivityMainBinding;
 import com.saif.coronatracker.helpers.Methods;
 import com.saif.coronatracker.models.CountriesResponse;
 import com.saif.coronatracker.restService.ApiClients;
@@ -31,6 +26,7 @@ import com.saif.coronatracker.restService.ApiInterfaces;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +93,19 @@ public class AllCountryActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NotNull Call<List<CountriesResponse>> call, @NotNull Throwable t) {
                 customProgress.hideProgress();
-                Log.d("Error", t.getMessage());
+
+                if (t instanceof IOException) {
+                    //internet problem
+                    Snackbar snackbar = methods.showInternetSnackBar();
+                    snackbar.setAction("Retry", view -> {
+                        customProgress = CustomProgressDialog.getInstance();
+                        customProgress.showProgress(mActivity, "Please Wait...", false);
+                        initAllCountryData();
+                    });
+                } else {
+                    //server problem
+                    Toast.makeText(mActivity, mActivity.getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

@@ -11,7 +11,9 @@ import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.saif.coronatracker.R;
 
 import java.util.ArrayList;
@@ -62,5 +64,15 @@ public class Methods {
                 appCompatTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
             }
         }
+    }
+
+    public Snackbar showInternetSnackBar() {
+        Snackbar snackbar = Snackbar
+                .make(((FragmentActivity) context).findViewById(android.R.id.content), "No internet connection!", Snackbar.LENGTH_INDEFINITE);
+
+        // Changing message text color
+        snackbar.setActionTextColor(context.getResources().getColor(R.color.colorSecondaryLight));
+        snackbar.show();
+        return snackbar;
     }
 }

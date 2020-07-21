@@ -1,4 +1,4 @@
-package com.saif.coronatracker;
+package com.saif.coronatracker.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,17 +6,21 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+import com.saif.coronatracker.R;
 import com.saif.coronatracker.customs.CustomProgressDialog;
 import com.saif.coronatracker.databinding.ActivityMainBinding;
 import com.saif.coronatracker.helpers.Methods;
 import com.saif.coronatracker.models.GlobalStats;
 import com.saif.coronatracker.restService.ApiClients;
 import com.saif.coronatracker.restService.ApiInterfaces;
-import com.saif.coronatracker.ui.AllCountryActivity;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(@NonNull Call<GlobalStats> call, @NonNull Response<GlobalStats> response) {
                 customProgress.hideProgress();
+                bindingMainActivity.imgNoInternet.setVisibility(View.GONE);
                 if (response.isSuccessful()) {
                     try {
                         if (response.body() != null) {
@@ -100,6 +105,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Call<GlobalStats> call, @NonNull Throwable t) {
                 customProgress.hideProgress();
+
+                if (t instanceof IOException) {
+                    //internet problem
+                    bindingMainActivity.imgNoInternet.setVisibility(View.VISIBLE);
+                    Snackbar snackbar = methods.showInternetSnackBar();
+                    snackbar.setAction("Retry", view -> {
+                        customProgress = CustomProgressDialog.getInstance();
+                        customProgress.showProgress(MainActivity.this, "Please Wait...", false);
+                        getGlobalStats();
+                    });
+                } else {
+                    //server problem
+                    Toast.makeText(mActivity, mActivity.getResources().getString(R.string.error), Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

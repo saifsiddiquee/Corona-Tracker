@@ -163,21 +163,22 @@
         app:layout_constraintTop_toBottomOf="@+id/view3">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_pos" />
 
-        <com.saif.coronatracker.customs.TextViewRegular
+        <com.saif.coronatracker.customs.TextViewBold
             android:id="@+id/tvTotalCase"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:text="Total Affected: 25011"
-            android:textColor="@color/colorTextSecondary" />
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/size_title" />
 
     </RelativeLayout>
 
@@ -198,21 +199,22 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_recovered" />
 
-        <com.saif.coronatracker.customs.TextViewRegular
+        <com.saif.coronatracker.customs.TextViewBold
             android:id="@+id/tvTotalRecovered"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:text="Total Affected: 25011"
-            android:textColor="@color/colorTextSecondary" />
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/size_title" />
 
     </RelativeLayout>
 
@@ -233,21 +235,22 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_death" />
 
-        <com.saif.coronatracker.customs.TextViewRegular
+        <com.saif.coronatracker.customs.TextViewBold
             android:id="@+id/tvTotalDied"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:text="Total Affected: 25011"
-            android:textColor="@color/colorTextSecondary" />
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/size_title" />
 
     </RelativeLayout>
 
@@ -267,21 +270,22 @@
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:scaleType="centerCrop"
             android:src="@drawable/icon_test" />
 
-        <com.saif.coronatracker.customs.TextViewRegular
+        <com.saif.coronatracker.customs.TextViewBold
             android:id="@+id/tvTotalTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginStart="8dp"
             android:text="Total Affected: 25011"
-            android:textColor="@color/colorTextSecondary" />
+            android:textColor="@color/colorTextSecondary"
+            android:textSize="@dimen/size_title" />
 
     </RelativeLayout>
 
