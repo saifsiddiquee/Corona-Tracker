@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.saif.coronatracker.customs.TextViewBold
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="8dp"
+            android:text="Case Update"
+            android:textColor="@color/colorText" />
+
+        <ImageView
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_total_cases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_today_cases"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_blue"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_total_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_today_cases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_total_cases"
+        app:layout_constraintTop_toTopOf="@+id/card_total_cases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_blue"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_today_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5715"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_active_cases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_critical_cases"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_total_cases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_orange"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_active_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Active Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_critical_cases"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_active_cases"
+        app:layout_constraintTop_toBottomOf="@+id/card_total_cases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_red"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_critical_cases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Critical Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recovered"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/card_recovered_today"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_active_cases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_green"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_recovered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recovered Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recovered_today"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_recovered"
+        app:layout_constraintTop_toBottomOf="@+id/card_active_cases">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_green"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_recovered_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recovered Today"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_death"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card_death_today"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_recovered">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_grey"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_death"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Death Cases"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_death_today"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:checkable="true"
+        android:clickable="true"
+        android:elevation="8dp"
+        android:focusable="true"
+        android:minWidth="150dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/card_death"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/card_death"
+        app:layout_constraintTop_toBottomOf="@+id/card_recovered">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_gradient_grey"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:id="@+id/txt_death_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5001"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_head" />
+
+            <com.saif.coronatracker.customs.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Died Today"
+                android:textColor="@color/colorText"
+                android:textSize="@dimen/size_body" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

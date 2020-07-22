@@ -2,16 +2,19 @@ package com.saif.coronatracker.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Outline;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewOutlineProvider;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 import com.saif.coronatracker.R;
 import com.saif.coronatracker.customs.CustomProgressDialog;
 import com.saif.coronatracker.databinding.ActivityMainBinding;
@@ -44,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
         mActivity = MainActivity.this;
         methods = new Methods(this);
 
+
         if (getSupportActionBar() != null) {
-            methods.changeActionBarFont("Corona Tracker");
-            methods.centerTitle(getWindow(), getTitle());
+            getSupportActionBar().hide();
+//            methods.changeActionBarFont("Corona Tracker");
+//            methods.centerTitle(getWindow(), getTitle());
         }
 
         customProgress = CustomProgressDialog.getInstance();
@@ -63,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }, 1500);
         }));
 
-        bindingMainActivity.cardAffectedCountry.setOnClickListener(new View.OnClickListener() {
+        bindingMainActivity.seeMapDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(mActivity, AllCountryActivity.class));
@@ -85,20 +90,24 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         if (response.body() != null) {
                             bindingMainActivity.txtTotalCases.setText(response.body().getCases());
-                            bindingMainActivity.txtActiveCases.setText(response.body().getActive());
-                            bindingMainActivity.txtTodayCases.setText(response.body().getTodayCases());
-                            bindingMainActivity.txtCriticalCases.setText(response.body().getCritical());
                             bindingMainActivity.txtRecovered.setText(response.body().getRecovered());
-                            bindingMainActivity.txtRecoveredToday.setText(response.body().getTodayRecovered());
                             bindingMainActivity.txtDeath.setText(response.body().getDeaths());
-                            bindingMainActivity.txtDeathToday.setText(response.body().getTodayDeaths());
-                            bindingMainActivity.txtAffectedCountries.setText(response.body().getAffectedCountries());
                         }
                     } catch (Exception e) {
                         Log.d(TAG, "onResponse: " + e.getMessage());
                     }
 
                     bindingMainActivity.mainHolder.setVisibility(View.VISIBLE);
+
+                    bindingMainActivity.seeAllCases.setOnClickListener(view -> {
+                        String data = new Gson().toJson(response.body());
+                        CaseUpdateFragment caseUpdateFragment = new CaseUpdateFragment();
+                        Bundle args = new Bundle();
+                        args.putString("CASE_DATA", data);
+                        caseUpdateFragment.setArguments(args);
+                        caseUpdateFragment.show(getSupportFragmentManager(),
+                                "CaseUpdateFragment");
+                    });
                 }
             }
 

@@ -31,7 +31,7 @@
             android:id="@+id/main_holder"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <RelativeLayout
                 android:id="@+id/icon_layout"
@@ -73,7 +73,6 @@
 
 
             <com.saif.coronatracker.customs.TextViewBold
-                android:id="@+id/see_all_cases"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
@@ -168,7 +167,7 @@
                 <com.saif.coronatracker.customs.TextViewBold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Died"
+                    android:text="Infected"
                     android:textSize="@dimen/size_body" />
 
             </LinearLayout>
@@ -205,7 +204,7 @@
                 <com.saif.coronatracker.customs.TextViewBold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Recovered"
+                    android:text="Infected"
                     android:textSize="@dimen/size_body" />
 
             </LinearLayout>
