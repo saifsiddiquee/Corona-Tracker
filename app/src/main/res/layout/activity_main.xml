@@ -1,258 +1,378 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:openDrawer="end">
 
-    <ImageView
-        android:id="@+id/imgNoInternet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/no_internet"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:context=".ui.MainActivity">
+
+        <ImageView
+            android:id="@+id/imgNoInternet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_internet"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/swipe_refresh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/main_holder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone">
+
+                <RelativeLayout
+                    android:id="@+id/icon_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/doc_with_bar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/menu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="8dp"
+                        android:foreground="?selectableItemBackground"
+                        android:padding="8dp"
+                        android:src="@drawable/menu" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/virus" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="180dp"
+                        android:text="All you need\nis stay at home."
+                        android:textAlignment="textStart"
+                        android:textColor="@color/colorText"
+                        android:textSize="@dimen/size_head" />
+
+                </RelativeLayout>
+
+                <com.saif.coronatracker.customs.TextViewBold
+                    android:id="@+id/textViewBold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Case Update"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/size_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/icon_layout" />
+
+
+                <com.saif.coronatracker.customs.TextViewBold
+                    android:id="@+id/see_all_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:foreground="?selectableItemBackground"
+                    android:padding="8dp"
+                    android:text="See details"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/size_body"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewBold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textViewBold" />
+
+                <com.saif.coronatracker.customs.TextViewRegular
+                    android:id="@+id/textViewRegular4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/txt_source"
+                    android:textColor="@color/colorTextSecondary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="spread"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewBold">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_pos" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/txt_total_cases"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="10255"
+                        android:textColor="@android:color/holo_orange_light"
+                        android:textSize="@dimen/size_head" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Infected"
+                        android:textSize="@dimen/size_body" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout4"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout4">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_death" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/txt_death"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="10255"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="@dimen/size_head" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Died"
+                        android:textSize="@dimen/size_body" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout5"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout4">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_recovered" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:id="@+id/txt_recovered"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="10255"
+                        android:textColor="@android:color/holo_green_light"
+                        android:textSize="@dimen/size_head" />
+
+                    <com.saif.coronatracker.customs.TextViewBold
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recovered"
+                        android:textSize="@dimen/size_body" />
+
+                </LinearLayout>
+
+                <com.saif.coronatracker.customs.TextViewBold
+                    android:id="@+id/txtSpread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Spread of virus"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="@dimen/size_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+                <com.saif.coronatracker.customs.TextViewBold
+                    android:id="@+id/see_map_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:foreground="?selectableItemBackground"
+                    android:padding="8dp"
+                    android:text="See details"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/size_body"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSpread"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtSpread" />
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/map"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewRegular4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtSpread" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/main_holder"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:id="@+id/icon_layout"
+                android:id="@+id/relativeLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:background="@drawable/doc_with_bar"
+                android:layout_height="156dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/virus" />
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/prevent" />
+            </RelativeLayout>
 
-                <com.saif.coronatracker.customs.TextViewBold
+            <RelativeLayout
+                android:id="@+id/layout_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:foreground="?selectableItemBackground"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relativeLayout2">
+
+                <ImageView
+                    android:id="@+id/abt_corona_img"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/corona" />
+
+                <com.saif.coronatracker.customs.TextViewRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="180dp"
-                    android:text="All you need\nis stay at home."
-                    android:textAlignment="textStart"
-                    android:textColor="@color/colorText"
-                    android:textSize="@dimen/size_head" />
-
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/abt_corona_img"
+                    android:padding="4dp"
+                    android:text="About Corona Virus"
+                    android:textSize="@dimen/size_title" />
             </RelativeLayout>
 
-            <com.saif.coronatracker.customs.TextViewBold
-                android:id="@+id/textViewBold"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:id="@+id/layout_links"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="Case Update"
-                android:textColor="@color/colorTextSecondary"
-                android:textSize="@dimen/size_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/icon_layout" />
-
-
-            <com.saif.coronatracker.customs.TextViewBold
-                android:id="@+id/see_all_cases"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="See details"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/size_body"
-                app:layout_constraintBottom_toBottomOf="@+id/textViewBold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textViewBold" />
-
-            <com.saif.coronatracker.customs.TextViewRegular
-                android:id="@+id/textViewRegular4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/txt_source"
-                android:textColor="@color/colorTextSecondary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewBold">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/icon_pos" />
-
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:id="@+id/txt_total_cases"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="10255"
-                    android:textColor="@android:color/holo_orange_light"
-                    android:textSize="@dimen/size_head" />
-
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Infected"
-                    android:textSize="@dimen/size_body" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout4"
-                app:layout_constraintTop_toTopOf="@+id/linearLayout4">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/icon_death" />
-
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:id="@+id/txt_death"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="10255"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="@dimen/size_head" />
-
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Died"
-                    android:textSize="@dimen/size_body" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearLayout3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center"
-                android:orientation="vertical"
+                android:foreground="?selectableItemBackground"
                 android:padding="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-                app:layout_constraintTop_toTopOf="@+id/linearLayout4">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layout_about">
 
                 <ImageView
+                    android:id="@+id/img_links"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:src="@drawable/icon_recovered" />
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/internet" />
 
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:id="@+id/txt_recovered"
+                <com.saif.coronatracker.customs.TextViewRegular
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="10255"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="@dimen/size_head" />
-
-                <com.saif.coronatracker.customs.TextViewBold
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Recovered"
-                    android:textSize="@dimen/size_body" />
-
-            </LinearLayout>
-
-            <com.saif.coronatracker.customs.TextViewBold
-                android:id="@+id/txtSpread"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Spread of virus"
-                android:textColor="@color/colorTextSecondary"
-                android:textSize="@dimen/size_title"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
-
-            <com.saif.coronatracker.customs.TextViewBold
-                android:id="@+id/see_map_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:text="See details"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/size_body"
-                app:layout_constraintBottom_toBottomOf="@+id/txtSpread"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txtSpread" />
-
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_toEndOf="@+id/img_links"
+                    android:padding="4dp"
+                    android:text="Important Links"
+                    android:textSize="@dimen/size_title" />
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:scaleType="fitXY"
+                android:layout_height="156dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/map"
-                app:layout_constraintBottom_toTopOf="@+id/textViewRegular4"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtSpread" />
+                android:alpha="0.5"
+                android:src="@drawable/save_life"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.navigation.NavigationView>
+
+</androidx.drawerlayout.widget.DrawerLayout>

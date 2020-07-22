@@ -70,12 +70,7 @@ public class CaseUpdateFragment extends BottomSheetDialogFragment {
         binding.txtRecovered.setText(response.getRecovered());
         binding.txtDeath.setText(response.getDeaths());
 
-        binding.btnClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                bottomSheetDialog.dismiss();
-            }
-        });
+        binding.btnClose.setOnClickListener(view1 -> bottomSheetDialog.dismiss());
 
         return view;
     }

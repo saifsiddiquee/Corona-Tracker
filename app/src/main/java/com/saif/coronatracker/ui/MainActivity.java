@@ -2,26 +2,29 @@ package com.saif.coronatracker.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Outline;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewOutlineProvider;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.saif.coronatracker.R;
 import com.saif.coronatracker.customs.CustomProgressDialog;
 import com.saif.coronatracker.databinding.ActivityMainBinding;
+import com.saif.coronatracker.helpers.DrawerController;
 import com.saif.coronatracker.helpers.Methods;
 import com.saif.coronatracker.models.GlobalStats;
 import com.saif.coronatracker.restService.ApiClients;
 import com.saif.coronatracker.restService.ApiInterfaces;
+import com.thefinestartist.finestwebview.FinestWebView;
 
 import java.io.IOException;
 
@@ -37,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
     private CustomProgressDialog customProgress;
     private Methods methods;
     private Activity mActivity;
+    private DrawerController drawerController;
+    private DrawerLayout drawer;
+    private NavigationView navView;
+
+    private static String aboutUrl = "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/";
+    private static String linkUrl = "https://corona.gov.bd/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         mActivity = MainActivity.this;
         methods = new Methods(this);
 
+        drawer = bindingMainActivity.drawerLayout;
+        navView = bindingMainActivity.navView;
+
+        drawerController = new DrawerController(navView, drawer);
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
@@ -74,6 +87,45 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(mActivity, AllCountryActivity.class));
             }
         });
+
+        bindingMainActivity.menu.setOnClickListener(view1 -> {
+            if (!drawer.isDrawerOpen(GravityCompat.END)) {
+                drawer.openDrawer(GravityCompat.END, true);
+            }
+        });
+
+        bindingMainActivity.layoutAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new FinestWebView.Builder(mActivity)
+                        .toolbarScrollFlags(0)
+                        .updateTitleFromHtml(true)
+                        .progressBarColor(mActivity.getResources().getColor(R.color.colorPrimary))
+                        .showUrl(false)
+                        .swipeRefreshColor(mActivity.getResources().getColor(R.color.colorPrimary))
+                        .show(aboutUrl);
+
+                drawer.closeDrawer(GravityCompat.END, true);
+
+            }
+        });
+
+        bindingMainActivity.layoutLinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                new FinestWebView.Builder(mActivity)
+                        .toolbarScrollFlags(0)
+                        .updateTitleFromHtml(true)
+                        .progressBarColor(mActivity.getResources().getColor(R.color.colorPrimary))
+                        .showUrl(false)
+                        .swipeRefreshColor(mActivity.getResources().getColor(R.color.colorPrimary))
+                        .show(linkUrl);
+
+                drawer.closeDrawer(GravityCompat.END, true);
+            }
+        });
+
     }
 
     private void getGlobalStats() {
@@ -130,5 +182,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawers();
+            return;
+        } else {
+            finish();
+
+        }
+        super.onBackPressed();
     }
 }
